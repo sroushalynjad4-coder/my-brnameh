@@ -1,0 +1,52 @@
+<div class="grid">
+        <div class="card">
+            <h3>📅 اولویت‌های طلایی هفته ۱</h3>
+            <div class="task-list">
+                <div class="task-item"><span>📚 فارسی: لغت و قرابت (دهم)</span><input type="checkbox"></div>
+                <div class="task-item"><span>👨‍🏫 فرهنگیان: مهارت‌های معلمی</span><input type="checkbox"></div>
+                <div class="task-item"><span>🧠 هوش: استعداد تحلیلی</span><input type="checkbox"></div>
+                <div class="task-item"><span>🕋 دینی: آیات برگزیده دهم</span><input type="checkbox"></div>
+                <div class="task-item"><span>📊 ریاضی: آمار و احتمال</span><input type="checkbox"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>📝 تحلیل آزمون و رکورد</h3>
+            <p style="font-size: 0.9rem; color: #666;">نتایج آزمون‌های خود را برای تحلیل وارد کنید:</p>
+            <input type="text" class="exam-input" id="examName" placeholder="نام آزمون (مثلاً ماز مرحله ۱)">
+            <input type="number" class="exam-input" id="score" placeholder="تعداد درست">
+            <button class="btn-main" onclick="saveRecord()">ثبت در دیتابیس شخصی</button>
+            <div id="history" style="margin-top: 15px; font-size: 0.85rem;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // تنظیم تایمر ۸۷ روزه
+    const targetDate = new Date().getTime() + (87 * 24 * 60 * 60 * 1000);
+    
+    function updateTimer() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+        
+        document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+    }
+    setInterval(updateTimer, 1000);
+
+    // ثبت اطلاعات در حافظه
+    function saveRecord() {
+        const name = document.getElementById('examName').value;
+        const score = document.getElementById('score').value;
+        if(!name || !score) return alert('لطفاً اطلاعات را کامل کنید');
+        
+        const record = <div class="task-item"><span>✅ ${name}</span> <span>${score} درست</span></div>;
+        document.getElementById('history').innerHTML += record;
+        alert('با موفقیت ثبت شد!');
+    }
+</script>
+
+</body>
+</html>
