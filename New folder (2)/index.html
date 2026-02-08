@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل استراتژیک کنکور | طرح الماس ماز</title>
+    <style>
+        :root {
+            --maze-navy: #1a237e;
+            --maze-gold: #ffc107;
+            --maze-light-blue: #e8eaf6;
+            --success: #00c853;
+            --danger: #ff1744;
+        }
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            display: flex;
+        }
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: var(--maze-navy);
+            height: 100vh;
+            position: fixed;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        }
+        .sidebar h2 { color: var(--maze-gold); text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+        .menu-item { padding: 15px; cursor: pointer; border-radius: 10px; transition: 0.3s; margin-bottom: 5px; }
+        .menu-item:hover { background: rgba(255,255,255,0.1); color: var(--maze-gold); }
+        
+        /* Main Content */
+        .main { margin-right: 260px; padding: 30px; width: calc(100% - 260px); }
+        
+        /* Countdown Section */
+        .hero {
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(26, 35, 126, 0.3);
+            margin-bottom: 30px;
+        }
+        .timer-container { display: flex; justify-content: center; gap: 15px; direction: ltr; margin-top: 20px; }
+        .time-card { background: rgba(255,255,255,0.15); padding: 15px; border-radius: 15px; min-width: 90px; backdrop-filter: blur(5px); }
+        .time-card span { display: block; font-size: 2.5rem; font-weight: bold; color: var(--maze-gold); }
+        
+        /* Dashboard Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--maze-navy); border-right: 4px solid var(--maze-gold); padding-right: 10px; margin-top: 0; }
+        
+        /* Task List */
+        .task-list { margin-top: 15px; }
+        .task-item { background: #f8fafc; padding: 12px; border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #edf2f7; }
+        .task-item.completed { border-right: 5px solid var(--success); opacity: 0.6; }
+        .check-btn { color: var(--success); cursor: pointer; font-size: 1.2rem; }
+        
+        /* Exam Section */
+        .exam-box { background: #fffde7; border: 1px dashed #fbc02d; padding: 15px; border-radius: 10px; margin-top: 10px; }
+        input { width: 100%; padding: 10px; margin-top: 10px; border-radius: 8px; border: 1px solid #ddd; }
+        .btn-main { background: var(--maze-navy); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>MAZE DIAMOND</h2>
+    <div class="menu-item">🏠 میز کار من</div>
+    <div class="menu-item">📅 برنامه ۹۰ روزه</div>
+    <div class="menu-item">📝 آزمون‌های آزمایشی</div>
+    <div class="menu-item">📊 کارنامه عملکرد</div>
+</div>
+
+<div class="main">
+    <div class="hero">
+        <h1>🚀 روزشمار هوشمند کنکور</h1>
+        <div class="timer-container">
+            <div class="time-card"><span id="days">87</span>روز</div>
+            <div class="time-card"><span id="hours">00</span>ساعت</div>
+            <div class="time-card"><span id="minutes">00</span>دقیقه</div>
+            <div class="time-card"><span id="seconds">00</span>ثانیه</div>
+        </div>
+    </div>
